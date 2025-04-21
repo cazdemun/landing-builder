@@ -1,0 +1,10 @@
+.section {
+  width: 100%;
+  padding-left: var(--padding-horizontal-mobile, 2rem); // Default mobile: 32px
+  padding-right: var(--padding-horizontal-mobile, 2rem);
+
+  @media (min-width: 768px) {
+    padding-left: var(--padding-horizontal-desktop, 6rem); // Default desktop: 96px
+    padding-right: var(--padding-horizontal-desktop, 6rem);
+  }
+}
