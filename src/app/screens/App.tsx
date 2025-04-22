@@ -3,6 +3,7 @@ import { Section, cn } from "@/app/UI";
 
 import styles from "./App.module.scss";
 import styles_ from "./EmptySection.module.scss";
+import Head from "next/head";
 
 export const promoTitle = "¡Muy pronto podrás construir tu propia página web aquí en Yuntayki!";
 export const promoDescription = "Estamos preparando una herramienta increíble para que puedas lanzar tu sitio web de manera fácil, rápida y profesional.";
@@ -12,6 +13,13 @@ export default function App() {
 
   return (
     <div className={styles.page}>
+      <Head>
+        <link
+          rel="canonical"
+          href="https://demo.yuntayki.com"
+          key="canonical"
+        />
+      </Head>
       <header className={styles.header} />
       <main className={styles.main}>
         <Section className={styles.textAlignCenter}>
