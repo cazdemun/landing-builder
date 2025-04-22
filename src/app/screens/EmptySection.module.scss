@@ -1,0 +1,45 @@
+.emptySection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 300px; // Mobile first
+  padding: 2rem;
+  border: 2px dashed #bbb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+
+  &:hover {
+    background-color: #f9f9f9;
+    border-color: #888;
+  }
+
+  h2 {
+    font-size: 1.5rem; // 24px
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 1rem; // 16px
+    color: #777;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 500px; // Más alto en desktop
+    padding: 4rem;
+
+    h2 {
+      font-size: 2rem; // 32px
+    }
+
+    p {
+      font-size: 1.125rem; // 18px
+    }
+  }
+}
