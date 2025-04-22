@@ -1,0 +1,51 @@
+$max-margin: 8;
+
+// Definimos los breakpoints
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px
+);
+
+// Mixin para generar márgenes
+@mixin generate-margin-classes($prefix: "") {
+  @for $i from 1 through $max-margin {
+    .#{$prefix}m-#{$i} {
+      margin: #{$i}rem;
+    }
+    .#{$prefix}mt-#{$i} {
+      margin-top: #{$i}rem;
+    }
+    .#{$prefix}mb-#{$i} {
+      margin-bottom: #{$i}rem;
+    }
+    .#{$prefix}ml-#{$i} {
+      margin-left: #{$i}rem;
+    }
+    .#{$prefix}mr-#{$i} {
+      margin-right: #{$i}rem;
+    }
+    .#{$prefix}mx-#{$i} {
+      margin-left: #{$i}rem;
+      margin-right: #{$i}rem;
+    }
+    .#{$prefix}my-#{$i} {
+      margin-top: #{$i}rem;
+      margin-bottom: #{$i}rem;
+    }
+  }
+}
+
+// ---
+// Ahora generamos:
+
+// 1. Clases normales (sin media query)
+@include generate-margin-classes();
+
+// 2. Clases responsivas
+@each $label, $size in $breakpoints {
+  @media (min-width: #{$size}) {
+    @include generate-margin-classes("#{$label}\\:");
+  }
+}
