@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { Section, cn } from "@/app/UI";
+import Head from "next/head";
+import { cn } from "@/lib/utils";
+import { Section } from "@/app/UI";
+import EmptySection from "../components/EmptySection";
 
 import styles from "./App.module.scss";
-import styles_ from "./EmptySection.module.scss";
-import Head from "next/head";
 
 export const promoTitle = "¡Muy pronto podrás construir tu propia página web aquí en Yuntayki!";
 export const promoDescription = "Estamos preparando una herramienta increíble para que puedas lanzar tu sitio web de manera fácil, rápida y profesional.";
@@ -26,10 +27,8 @@ export default function App() {
           <h1>Diseña el futuro de tu emprendimiento con Yuntayki</h1>
           <p className="mt-1 md:mt-2">Selecciona y personaliza cada sección de tu página web aquí mismo. No te preocupes por los detalles técnicos: cuando termines tu diseño, dale a &rsquo;Enviar&rsquo; y nosotros nos encargaremos del resto.</p>
         </Section>
-        <Section className={cn(styles.textAlignCenter, 'mt-2 md:mt-4')}>
-          <div className={styles_.emptySection}>
-            <h2>¡Agrega tu primera sección!</h2>
-          </div>
+        <Section className={cn(styles.textAlignCenter, 'mt-4 md:mt-8')}>
+          <EmptySection />
         </Section>
       </main>
       <footer className={styles.footer}>
