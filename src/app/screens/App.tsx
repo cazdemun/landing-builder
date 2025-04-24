@@ -3,6 +3,7 @@ import Head from "next/head";
 import { cn } from "@/lib/utils";
 import { Section } from "@/app/UI";
 import EmptySection from "../components/EmptySection";
+import SendFloatingButton from "../components/SendFloatingButton";
 
 import styles from "./App.module.scss";
 
@@ -30,6 +31,7 @@ export default function App() {
         <Section className={cn(styles.textAlignCenter, 'mt-4 md:mt-8')}>
           <EmptySection />
         </Section>
+        <SendFloatingButton />
       </main>
       <footer className={styles.footer}>
         <a

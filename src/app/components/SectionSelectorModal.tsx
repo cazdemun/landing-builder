@@ -16,7 +16,7 @@ const SectionSelectorModal: React.FC<SectionSelectorModalProps> = ({ children })
   return (
     <Dialog>
       <DialogTrigger className="w-full">{children}</DialogTrigger>
-      <DialogContent className="overflow-y-auto min-w-[90vw] max-h-[85vh] p-8">
+      <DialogContent className="overflow-y-auto min-w-[95vw] max-h-[95vh] p-8">
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>Please select a section</DialogDescription>
