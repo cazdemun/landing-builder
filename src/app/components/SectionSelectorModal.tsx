@@ -1,5 +1,6 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -7,31 +8,32 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import Image from "next/image";
-import { SelectSection } from "./SelectSection";
-import { HeroSection, ReviewsSection, FooterSection } from "@/sections";
+import { SelectSection as SectionSelectorWrapper } from "./SelectSection";
+import { useSections } from "@/context/SectionsContext";
+import SectionSelector, { dialogSections } from "./SectionSelector";
 
 type SectionSelectorModalProps = {
   children?: React.ReactNode
 }
 
 const SectionSelectorModal: React.FC<SectionSelectorModalProps> = ({ children }) => {
+  const { sections, addSection } = useSections();
+
   return (
     <Dialog>
       <DialogTrigger className="w-full">{children}</DialogTrigger>
-      <DialogContent className="overflow-y-auto min-w-[95vw] max-h-[95vh] p-8">
+      <DialogContent className="overflow-y-auto min-w-[100vw] max-h-[100vh] p-8">
         <DialogHeader>
           <DialogTitle>Secciones</DialogTitle>
           <DialogDescription>Has click en la sección que quieras agregar</DialogDescription>
         </DialogHeader>
-        <SelectSection type="Banner principal">
-          <HeroSection />
-        </SelectSection>
-        <SelectSection type="Reseñas">
-          <ReviewsSection />
-        </SelectSection>
-        <SelectSection type="Footer">
-          <FooterSection />
-        </SelectSection>
+        {dialogSections.map((section) => (
+          <DialogClose key={section.type} onClick={() => addSection(section)}>
+            <SectionSelectorWrapper type={section.type}>
+              <SectionSelector {...section} />
+            </SectionSelectorWrapper>
+          </DialogClose>
+        ))}
         <a
           href="https://wa.me/51933081833?text=Hola%2C%20quiero%20crear%20mi%20página%20web%20con%20Yuntayki"
           target="_blank"

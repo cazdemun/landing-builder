@@ -1,16 +1,28 @@
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
-function Hero() {
+import styles from "./HeroSection.module.scss"
+
+export type HeroProps = {
+  title?: string
+  description?: string
+  button?: {
+    label?: string
+    href?: string
+  }
+}
+
+const Hero: React.FC<HeroProps> = ({ title, description, button }) => {
   return (
-    <section className="w-full py-20 text-center px-4 md:px-12">
+    <section className={cn("w-full py-20 text-center px-4 md:px-12", styles.heroSectionShadow)}>
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Bienvenido a Yuntayki
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground mb-6">
-          {"Construye landings más rápido que tu competencia puede decir \"¿cómo lo hiciste?\""}
-        </p>
-        <Button size="lg">Empezar ahora</Button>
+        {title && <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>}
+        {description && <p className="text-lg md:text-xl text-muted-foreground mb-6">{description}</p>}
+        {button?.label && (
+          <Button size="lg" asChild variant="secondary">
+            <a href={button.href || "#"}>{button.label}</a>
+          </Button>
+        )}
       </div>
     </section>
   )

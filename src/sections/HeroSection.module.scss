@@ -1,0 +1,11 @@
+.heroSectionShadow {
+  box-shadow: 0px 1px 4px -3px white;
+
+  @media (prefers-color-scheme: light) {
+    box-shadow: 0px 1px 4px -3px black;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 0px 1px 4px -3px white;
+  }
+}
