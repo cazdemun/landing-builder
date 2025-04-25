@@ -17,7 +17,7 @@ type SectionSelectorModalProps = {
 }
 
 const SectionSelectorModal: React.FC<SectionSelectorModalProps> = ({ children }) => {
-  const { sections, addSection } = useSections();
+  const { addSection } = useSections();
 
   return (
     <Dialog>

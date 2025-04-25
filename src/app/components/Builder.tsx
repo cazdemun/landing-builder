@@ -5,7 +5,6 @@ import SectionSlot from "./SectionSlot";
 import SendFloatingButton from "./SendFloatingButton";
 import { SectionsProvider, useSections } from "@/context/SectionsContext";
 import SectionSelector from "./SectionSelector";
-import { Separator } from "@/components/ui/separator";
 
 const EmptyBuilder = () => {
   const { sections } = useSections()
@@ -28,10 +27,10 @@ const PartialBuilder = () => {
   if (sections.length < 1) return null;
   return (<>
     {sections.map((section, index) => section.type === 'hero' || section.type === 'footer'
-      ? (<SectionSelector key={index} {...section as any} />)
+      ? (<SectionSelector key={index} {...section as React.ComponentProps<typeof SectionSelector>} />)
       : (
         <Section key={index} className="text-center mt-4 md:mt-8">
-          <SectionSelector {...section as any} />
+          <SectionSelector {...section as React.ComponentProps<typeof SectionSelector>} />
         </Section>
       )
     )}
