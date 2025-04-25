@@ -22,7 +22,7 @@ const SectionSelectorModal: React.FC<SectionSelectorModalProps> = ({ children })
   return (
     <Dialog>
       <DialogTrigger className="w-full">{children}</DialogTrigger>
-      <DialogContent className="overflow-y-auto min-w-[100vw] max-h-[100vh] p-8">
+      <DialogContent className="overflow-y-auto min-w-[100svw] max-h-[100svh] p-8">
         <DialogHeader>
           <DialogTitle>Secciones</DialogTitle>
           <DialogDescription>Has click en la sección que quieras agregar</DialogDescription>
