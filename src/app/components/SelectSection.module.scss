@@ -1,0 +1,41 @@
+.wrapper {
+  position: relative;
+  border: 1px dashed var(--primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  border: 1px dashed var(--primary);
+  opacity: 0;
+  z-index: 5;
+
+  transition: background-color 0.2s ease, opacity 0.3s ease;
+
+  &:hover {
+    background-color: gray;
+    opacity: 0.5;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
